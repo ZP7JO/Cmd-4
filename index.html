@@ -1,0 +1,599 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="دانشنامه تاریخ ایران؛ از تمدن‌های کهن تا تاریخ معاصر">
+<title>ایران‌نامه | دانشنامه تاریخ ایران</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#10131b;
+  --panel:#191e29;
+  --panel2:#222a37;
+  --gold:#d9b56d;
+  --gold2:#f1d9a2;
+  --cream:#f2e8d5;
+  --muted:#b4b5c0;
+  --line:#ffffff16;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{
+  margin:0;background:var(--bg);color:var(--cream);
+  font-family:'Vazirmatn',sans-serif;line-height:1.95;
+}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+button{cursor:pointer}
+img{max-width:100%}
+header{
+  position:sticky;top:0;z-index:100;
+  background:#10131bf2;backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--line);
+}
+nav{
+  max-width:1200px;margin:auto;padding:12px 22px;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
+}
+.logo{font-family:'Amiri',serif;font-size:27px;color:var(--gold);white-space:nowrap}
+.navlinks{display:flex;gap:18px;flex-wrap:wrap;font-size:13px}
+.navlinks a{transition:color .2s}
+.navlinks a:hover,.navlinks a.active{color:var(--gold)}
+.menu-button{
+  display:none;background:none;color:var(--gold);
+  border:1px solid var(--line);border-radius:7px;padding:5px 12px;
+}
+.hero{
+  min-height:580px;display:grid;place-items:center;text-align:center;
+  padding:85px 22px;position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse at 50% 15%,#85652d55,transparent 55%),
+    radial-gradient(ellipse at 10% 100%,#263a55,transparent 55%),
+    linear-gradient(145deg,#171e2b,#10131b 75%);
+}
+.hero:before,.hero:after{
+  content:"";position:absolute;width:300px;height:300px;
+  border:1px solid #d9b56d30;transform:rotate(45deg);
+  animation:ornament 15s ease-in-out infinite alternate;
+}
+.hero:after{width:210px;height:210px;animation-delay:-6s}
+@keyframes ornament{
+  to{transform:rotate(135deg) scale(1.15)}
+}
+.hero-content{position:relative;z-index:2;max-width:850px}
+.eyebrow{color:var(--gold);font-size:13px;letter-spacing:1px}
+h1,h2,h3{font-family:'Amiri',serif;line-height:1.55}
+h1{font-size:clamp(43px,8vw,78px);margin:15px 0}
+h1 span{color:var(--gold)}
+.hero p{max-width:680px;color:var(--muted);margin:0 auto 25px}
+.btn{
+  display:inline-block;padding:10px 21px;border-radius:7px;
+  border:1px solid var(--gold);margin:5px;transition:.25s;
+}
+.btn.primary{background:var(--gold);color:#171717}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 25px #d9b56d20}
+.stats{
+  max-width:1000px;margin:-25px auto 0;padding:0 18px;
+  position:relative;z-index:5;display:grid;
+  grid-template-columns:repeat(3,1fr);gap:14px;
+}
+.stat{
+  text-align:center;background:var(--panel);border:1px solid var(--line);
+  border-radius:12px;padding:18px;
+}
+.stat strong{display:block;font-size:23px;color:var(--gold)}
+.stat span{font-size:12px;color:var(--muted)}
+section{max-width:1150px;margin:auto;padding:75px 22px}
+.section-head{text-align:center;margin-bottom:35px}
+.section-head h2{font-size:clamp(30px,5vw,43px);margin:4px 0}
+.section-head p{color:var(--muted);max-width:700px;margin:0 auto}
+.timeline{position:relative;max-width:900px;margin:auto}
+.timeline:before{
+  content:"";position:absolute;right:12px;top:4px;bottom:0;
+  width:2px;background:linear-gradient(var(--gold),#d9b56d12);
+}
+.era{
+  position:relative;margin:0 0 22px;padding:22px 40px 22px 22px;
+  background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  transition:.3s;
+}
+.era:before{
+  content:"";position:absolute;right:4px;top:30px;width:18px;height:18px;
+  border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px #d9b56d20;
+}
+.era:hover{transform:translateX(-4px);border-color:#d9b56d80}
+.date{color:var(--gold);font-size:13px}
+.era h3{font-size:25px;margin:4px 0}
+.era p{color:var(--muted);margin:7px 0}
+.tag{
+  display:inline-block;font-size:11px;padding:3px 10px;
+  border:1px solid #d9b56d55;border-radius:20px;color:var(--gold);
+  margin-top:6px;
+}
+.search{
+  display:block;width:100%;max-width:560px;margin:0 auto 20px;
+  padding:13px 16px;background:var(--panel);color:white;
+  border:1px solid #ffffff25;border-radius:9px;outline:none;
+}
+.search:focus{border-color:var(--gold)}
+.filters{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:25px}
+.filter{
+  color:var(--cream);background:var(--panel);
+  border:1px solid #ffffff20;border-radius:30px;padding:7px 15px;font-size:13px;
+}
+.filter.active,.filter:hover{background:var(--gold);color:#171717}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{
+  background:linear-gradient(150deg,#202735,#171b25);
+  border:1px solid var(--line);border-radius:12px;padding:22px;
+  transition:opacity .5s,transform .3s,border-color .3s;
+  opacity:0;transform:translateY(12px);
+}
+.card.show{opacity:1;transform:translateY(0)}
+.card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.card .symbol{font-size:29px;color:var(--gold)}
+.card h3{font-size:23px;margin:3px 0}
+.card p{font-size:13px;color:var(--muted)}
+.card .date{display:block}
+.empty{text-align:center;color:var(--muted);grid-column:1/-1}
+.feature{
+  background:linear-gradient(120deg,#34271b,#1b2029 75%);
+  border:1px solid #d9b56d40;border-radius:16px;padding:30px;
+  display:grid;grid-template-columns:1fr 1fr;gap:25px;
+}
+.feature h2{font-size:34px;color:var(--gold);margin:0}
+.feature p,.feature li{color:#d0c7b9}
+.feature li{margin:8px 0}
+.history-entry{
+  background:var(--panel);border:1px solid #d9b56d35;
+  border-radius:12px;padding:24px;margin:18px 0;
+  transition:transform .3s,border-color .3s;
+}
+.history-entry:hover{transform:translateY(-3px);border-color:var(--gold)}
+.history-entry h3{font-size:25px;margin:5px 0}
+.history-entry p{color:#d0d0d8;line-height:2.1}
+.word{
+  padding:20px;border-right:3px solid var(--gold);
+  background:#ffffff06;font-family:'Amiri',serif;font-size:21px;
+}
+.word small{display:block;font-family:'Vazirmatn',sans-serif;font-size:12px;color:var(--muted)}
+.reading-list{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.reading-item{padding:18px;border:1px solid var(--line);background:var(--panel);border-radius:10px}
+.reading-item p{font-size:13px;color:var(--muted)}
+.reveal{opacity:0;transform:translateY(18px);transition:.7s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.note{font-size:12px;color:var(--muted)}
+footer{text-align:center;border-top:1px solid var(--line);padding:35px 20px;color:var(--muted)}
+.backtop{
+  position:fixed;bottom:20px;left:20px;z-index:50;
+  width:44px;height:44px;border-radius:50%;background:var(--gold);
+  color:#171717;border:0;font-size:21px;box-shadow:0 5px 20px #0005;
+}
+@media(max-width:780px){
+  nav{flex-wrap:wrap}
+  .menu-button{display:block}
+  .navlinks{display:none;width:100%;flex-direction:column;gap:4px;padding:8px 0}
+  .navlinks.open{display:flex}
+  .navlinks a{padding:7px 0}
+  .stats{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+  .feature{grid-template-columns:1fr}
+  .reading-list{grid-template-columns:1fr}
+  section{padding:55px 17px}
+  .hero{min-height:520px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <nav>
+    <a href="#home" class="logo">ایران‌نامه ✦</a>
+    <button class="menu-button" id="menuButton" aria-expanded="false" aria-label="باز کردن منو">☰</button>
+    <div class="navlinks" id="navlinks">
+      <a href="#home">خانه</a>
+      <a href="#ancient">ایران باستان</a>
+      <a href="#dynasties">سلسله‌ها</a>
+      <a href="#middle">ایران پس از باستان</a>
+      <a href="#pahlavi">تاریخ پهلوی</a>
+      <a href="#revolution">انقلاب ۱۳۵۷</a>
+      <a href="#sources">منابع</a>
+    </div>
+  </nav>
+</header>
+
+<main id="home">
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">دانشنامه تاریخ، تمدن و فرهنگ ایران</div>
+    <h1>ایران؛ روایت <span>هزاران سال</span> تاریخ</h1>
+    <p>
+      از شهرهای کهن ایلام و پادشاهی مادها تا شاهنشاهی هخامنشی،
+      از شکوه ساسانیان تا تحولات تاریخ معاصر؛ سفری برای شناخت
+      گذشته سرزمینی با فرهنگی دیرپا و تاریخی پیچیده.
+    </p>
+    <a class="btn primary" href="#ancient">شروع سفر تاریخی ←</a>
+    <a class="btn" href="#pahlavi">رفتن به تاریخ پهلوی</a>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat"><strong>چندین هزار سال</strong><span>پیشینه سکونت و تمدن در فلات ایران</span></div>
+  <div class="stat"><strong>۶۵۱ میلادی</strong><span>پایان شاهنشاهی ساسانی</span></div>
+  <div class="stat"><strong>۱۳۵۷ خورشیدی</strong><span>انقلاب و پایان حکومت پهلوی</span></div>
+</div>
+
+<section id="ancient">
+  <div class="section-head reveal">
+    <div class="eyebrow">از شهرهای نخستین تا شاهنشاهی‌ها</div>
+    <h2>ایران باستان</h2>
+    <p>تاریخ کهن ایران از مجموعه‌ای از تمدن‌ها، زبان‌ها، حکومت‌ها و جوامع شکل گرفته است.</p>
+  </div>
+
+  <div class="timeline">
+    <article class="era reveal">
+      <span class="date">هزاره‌های چهارم تا یکم پیش از میلاد</span>
+      <h3>ایلامیان و شهرهای کهن</h3>
+      <p>تمدن ایلام در جنوب‌غرب ایران و با مراکزی مانند شوش شکوفا شد. این تمدن دارای سنت‌های نوشتاری، اداری، مذهبی و هنری بود و در طول تاریخ خود با میان‌رودان ارتباط و رقابت داشت.</p>
+      <span class="tag">تمدن ایلام</span>
+    </article>
+
+    <article class="era reveal">
+      <span class="date">حدود سده هفتم تا ششم پ.م.</span>
+      <h3>مادها</h3>
+      <p>مادها از قدرت‌های مهم غرب فلات ایران بودند. منابع آشوری و نوشته‌های یونانی اطلاعاتی درباره آن‌ها ارائه می‌کنند، اما جزئیات تاریخ و ساختار حکومتشان همچنان محل بررسی پژوهشگران است.</p>
+      <span class="tag">پادشاهی ماد</span>
+    </article>
+
+    <article class="era reveal">
+      <span class="date">حدود ۵۵۰ تا ۳۳۰ پ.م.</span>
+      <h3>هخامنشیان</h3>
+      <p>کوروش دوم شاهنشاهی بزرگی بنیان گذاشت. در دوره داریوش یکم، سازمان اداری، نظام مالیاتی و شبکه راه‌ها گسترش یافت. کتیبه‌ها، پاسارگاد و تخت‌جمشید از مهم‌ترین منابع شناخت این دوره‌اند.</p>
+      <span class="tag">کوروش · داریوش · خشایارشا</span>
+    </article>
+
+    <article class="era reveal">
+      <span class="date">از اواخر سده چهارم تا سده دوم پ.م.</span>
+      <h3>مقدونیان و سلوکیان</h3>
+      <p>پس از فتوحات اسکندر، حکومت سلوکی در بخش‌هایی از قلمرو پیشین هخامنشی شکل گرفت. شهرسازی و تعامل فرهنگی میان سنت‌های یونانی و ایرانی از ویژگی‌های این دوره بود.</p>
+    </article>
+
+    <article class="era reveal">
+      <span class="date">حدود ۲۴۷ پ.م. تا ۲۲۴ م.</span>
+      <h3>اشکانیان</h3>
+      <p>اشکانیان قدرتی بزرگ در منطقه ساختند و برای چندین سده با روم رقابت کردند. ساختار سیاسی آن‌ها به خاندان‌های نیرومند محلی متکی بود و سواره‌نظام نقش مهمی در ارتش داشت.</p>
+    </article>
+
+    <article class="era reveal">
+      <span class="date">۲۲۴ تا ۶۵۱ میلادی</span>
+      <h3>ساسانیان</h3>
+      <p>اردشیر یکم این شاهنشاهی را بنیان گذاشت. سازمان اداری، هنر فلزکاری، معماری و سنت‌های درباری گسترش یافتند. جنگ‌های طولانی با روم و بیزانس و بحران‌های داخلی از عوامل ضعف حکومت در سال‌های پایانی بودند.</p>
+    </article>
+  </div>
+</section>
+
+<section id="dynasties">
+  <div class="section-head reveal">
+    <div class="eyebrow">کتابخانه دوره‌ها</div>
+    <h2>سلسله‌ها و حکومت‌های ایران</h2>
+    <p>نام دوره را جست‌وجو کن یا با فیلترها میان دوره‌های تاریخی حرکت کن.</p>
+  </div>
+  <input class="search" id="search" type="search" placeholder="جست‌وجوی سلسله، تاریخ یا رویداد..." aria-label="جست‌وجوی سلسله‌ها">
+  <div class="filters" id="filters">
+    <button class="filter active" data-filter="همه">همه</button>
+    <button class="filter" data-filter="باستان">باستان</button>
+    <button class="filter" data-filter="میانه">قرون میانه</button>
+    <button class="filter" data-filter="متأخر">دوره متأخر</button>
+    <button class="filter" data-filter="معاصر">معاصر</button>
+  </div>
+  <div class="cards" id="cards" aria-live="polite"></div>
+</section>
+
+<section id="middle">
+  <div class="section-head reveal">
+    <div class="eyebrow">از سده هفتم میلادی تا قاجار</div>
+    <h2>ایران پس از دوران باستان</h2>
+    <p>پس از پایان ساسانیان، فرهنگ ایرانی در ساختارهای سیاسی و اجتماعی تازه ادامه یافت و دگرگون شد.</p>
+  </div>
+  <div class="timeline">
+    <article class="era reveal">
+      <span class="date">سده هفتم تا نهم</span>
+      <h3>ایران در سده‌های نخست اسلامی</h3>
+      <p>با فتح عربی، ساختار سیاسی و دینی ایران تغییر کرد. در طی چند سده، زبان فارسی نو در ادبیات و دیوان‌سالاری جایگاه تازه‌ای یافت و سنت‌های علمی و هنری شکل‌های جدیدی پیدا کردند.</p>
+    </article>
+    <article class="era reveal">
+      <span class="date">سده نهم تا دوازدهم</span>
+      <h3>طاهریان، صفاریان، سامانیان و غزنویان</h3>
+      <p>حکومت‌های منطقه‌ای در شرق و شمال‌شرق ایران قدرت گرفتند. سامانیان به شکوفایی ادب فارسی کمک کردند و دربارهای منطقه به مراکز شعر، دانش و فرهنگ تبدیل شدند.</p>
+    </article>
+    <article class="era reveal">
+      <span class="date">سده یازدهم تا پانزدهم</span>
+      <h3>سلجوقیان، مغولان و تیموریان</h3>
+      <p>ایران شاهد شکل‌گیری دولت‌های گسترده، جنگ‌ها و یورش مغول بود. در دوره‌های بعد، مراکز هنری و علمی تازه‌ای پدید آمدند و هنر کتاب‌آرایی و معماری رونق یافت.</p>
+    </article>
+    <article class="era reveal">
+      <span class="date">۱۵۰۱ تا ۱۷۳۶</span>
+      <h3>صفویان</h3>
+      <p>صفویان حکومت مرکزی نیرومندی تشکیل دادند و تشیع دوازده‌امامی را مذهب رسمی اعلام کردند. اصفهان در دوره شاه عباس اول به یکی از مراکز مهم معماری، تجارت و هنر تبدیل شد.</p>
+    </article>
+    <article class="era reveal">
+      <span class="date">سده هجدهم</span>
+      <h3>افشاریان و زندیان</h3>
+      <p>نادرشاه فتوحات نظامی بزرگی انجام داد. پس از مرگ او، رقابت‌های سیاسی ادامه یافت و کریم‌خان زند در بخش‌هایی از ایران ثبات نسبی برقرار کرد.</p>
+    </article>
+    <article class="era reveal">
+      <span class="date">۱۷۸۹ تا ۱۹۲۵</span>
+      <h3>قاجاریان و انقلاب مشروطه</h3>
+      <p>ایران با جنگ‌های خارجی و واگذاری سرزمین‌ها روبه‌رو شد. انقلاب مشروطه در سال ۱۲۸۵ خورشیدی به ایجاد مجلس و محدود شدن حقوقی قدرت سلطنت انجامید.</p>
+    </article>
+  </div>
+</section>
+
+<section id="pahlavi">
+  <div class="section-head reveal">
+    <div class="eyebrow">۱۹۲۵ تا ۱۹۷۹ میلادی</div>
+    <h2>تاریخ پهلوی؛ ایران در دوران نوسازی</h2>
+    <p>برای شناخت این دوره باید اصلاحات و دستاوردها را در کنار محدودیت‌های سیاسی، تحولات اجتماعی و زمینه‌های انقلاب بررسی کرد.</p>
+  </div>
+
+  <div class="feature reveal">
+    <div>
+      <h2>دگرگونی‌های بزرگ</h2>
+      <p>دوره پهلوی شاهد تغییرات چشمگیر در ساختار دولت، آموزش، زیرساخت‌ها، شهرنشینی و اقتصاد ایران بود.</p>
+      <ul>
+        <li>گسترش راه‌ها و ساخت راه‌آهن سراسری</li>
+        <li>تأسیس دانشگاه تهران در سال ۱۳۱۳ خورشیدی</li>
+        <li>توسعه آموزش نوین و دستگاه اداری</li>
+        <li>گسترش صنایع، شهرها و خدمات عمومی</li>
+        <li>اصلاحات ارضی و تغییرات اجتماعی دهه ۱۳۴۰</li>
+      </ul>
+    </div>
+    <div>
+      <h3>تغییرات و چالش‌ها</h3>
+      <p>نوسازی با تمرکز قدرت سیاسی همراه بود. محدودیت احزاب و مطبوعات، سرکوب مخالفان، نابرابری و پیامدهای کودتای ۱۳۳۲ از موضوعات مهم تاریخ این دوره‌اند.</p>
+      <div class="word">
+        شناخت تاریخ یعنی دیدن دستاوردها و هزینه‌ها در کنار یکدیگر.
+        <small>جمله تألیفی این دانشنامه</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="history-entry reveal">
+    <span class="date">۱۲۹۹ تا ۱۳۰۴ خورشیدی</span>
+    <h3>زمینه‌های تشکیل حکومت پهلوی</h3>
+    <p>در سال‌های پس از جنگ جهانی اول، ایران با بی‌ثباتی سیاسی، مشکلات مالی و رقابت قدرت‌های خارجی روبه‌رو بود. کودتای ۱۲۹۹ و سپس تحولات سیاسی به پایان سلطنت قاجار و تأسیس سلسله پهلوی در سال ۱۳۰۴ انجامید.</p>
+  </div>
+
+  <div class="history-entry reveal">
+    <span class="date">۱۳۰۴ تا ۱۳۲۰</span>
+    <h3>رضاشاه؛ تشکیل دولت مرکزی</h3>
+    <p>در این دوره ارتش و دستگاه اداری توسعه یافتند، راه‌آهن سراسری ساخته شد و آموزش نوین گسترش پیدا کرد. دانشگاه تهران در ۱۳۱۳ تأسیس شد و قوانین و ساختارهای دولتی تغییر کردند.</p>
+    <p>در سوی دیگر، قدرت سیاسی به‌شدت متمرکز شد، فعالیت مخالفان محدود گردید و برخی سیاست‌های اجتماعی با اجبار اجرا شدند. این جنبه‌ها نیز برای ارزیابی تاریخی دوره ضروری‌اند.</p>
+  </div>
+
+  <div class="history-entry reveal">
+    <span class="date">۱۳۲۰ تا ۱۳۲۹</span>
+    <h3>اشغال ایران و فضای سیاسی تازه</h3>
+    <p>در سال ۱۳۲۰، نیروهای بریتانیا و شوروی وارد ایران شدند و رضاشاه کناره‌گیری کرد. محمدرضاشاه به سلطنت رسید. در سال‌های بعد، احزاب، مطبوعات و نیروهای سیاسی گوناگون فعالیت بیشتری پیدا کردند.</p>
+    <p>موضوع استقلال کشور، نفت، رابطه با قدرت‌های خارجی و نقش مجلس به مسائل مهم سیاست ایران تبدیل شدند.</p>
+  </div>
+
+  <div class="history-entry reveal">
+    <span class="date">۱۳۲۹ تا ۱۳۳۲</span>
+    <h3>ملی‌شدن نفت و دولت مصدق</h3>
+    <p>ملی‌شدن صنعت نفت در سال ۱۳۲۹ و نخست‌وزیری محمد مصدق، منازعه‌ای بزرگ بر سر کنترل منابع نفتی ایجاد کرد. اختلاف با بریتانیا و بحران‌های داخلی و خارجی افزایش یافت.</p>
+    <p>در مرداد ۱۳۳۲، کودتایی با نقش‌آفرینی سازمان‌های اطلاعاتی آمریکا و بریتانیا و همراهی نیروهای داخلی دولت مصدق را سرنگون کرد. این رویداد بر سیاست ایران و رابطه جامعه با سلطنت اثر عمیقی گذاشت.</p>
+  </div>
+
+  <div class="history-entry reveal">
+    <span class="date">۱۳۳۲ تا اوایل دهه ۱۳۴۰</span>
+    <h3>تحکیم سلطنت و توسعه اقتصادی</h3>
+    <p>پس از کودتا، سلطنت موقعیت سیاسی خود را تقویت کرد. درآمد نفت، سرمایه‌گذاری خارجی و برنامه‌های عمرانی به توسعه زیرساخت‌ها و صنایع کمک کردند. هم‌زمان، محدودیت رقابت سیاسی و فعالیت مخالفان ادامه یافت.</p>
+  </div>
+
+  <div class="history-entry reveal">
+    <span class="date">۱۳۴۱ تا ۱۳۴۳</span>
+    <h3>انقلاب سفید و اصلاحات اجتماعی</h3>
+    <p>حکومت برنامه‌ای از اصلاحات را با عنوان انقلاب سفید اعلام کرد. اصلاحات ارضی، گسترش سوادآموزی، تغییراتی در حقوق زنان و برنامه‌های توسعه بخشی از آن بودند. آثار این سیاست‌ها در مناطق و گروه‌های مختلف یکسان نبود.</p>
+    <p>این اصلاحات با مخالفت‌هایی از سوی برخی گروه‌های مذهبی و سیاسی روبه‌رو شد. اعتراض‌ها و برخوردهای سال ۱۳۴۲ از نقاط مهم تحولات سیاسی این دوره‌اند.</p>
+  </div>
+
+  <div class="history-entry reveal">
+    <span class="date">دهه ۱۳۴۰ و ۱۳۵۰</span>
+    <h3>دانشگاه، صنعت و شهرنشینی</h3>
+    <p>جمعیت شهرنشین افزایش یافت، آموزش عالی گسترش پیدا کرد و دانشگاه‌ها و مراکز صنعتی بیشتری شکل گرفتند. درآمد بالاتر نفت امکان اجرای طرح‌های عمرانی را فراهم کرد، اما توسعه سریع با مسائلی چون تورم، نابرابری منطقه‌ای، مهاجرت و فشار بر خدمات شهری نیز همراه بود.</p>
+  </div>
+
+  <div class="history-entry reveal">
+    <span class="date">۱۳۵۴ تا ۱۳۵۷</span>
+    <h3>بحران سیاسی و انقلاب</h3>
+    <p>محدودیت سیاسی، نارضایتی‌های اجتماعی و اقتصادی، اعتراض گروه‌های مختلف و گسترش تظاهرات، حکومت را با بحران جدی روبه‌رو کرد. محمدرضاشاه در دی ۱۳۵۷ ایران را ترک کرد و انقلاب بهمن ۱۳۵۷ به پایان حکومت پهلوی انجامید.</p>
+  </div>
+
+  <div class="history-entry reveal">
+    <h3>جمع‌بندی تاریخی دوره پهلوی</h3>
+    <p>پهلوی دوره‌ای با نوسازی گسترده در زیرساخت، آموزش و اقتصاد بود، اما تمرکز قدرت، محدودیت آزادی‌های سیاسی و نارضایتی گروه‌های اجتماعی نیز در آن نقش داشتند. برای داوری دقیق، باید آمارها، اسناد، خاطرات و پژوهش‌های متفاوت را با هم سنجید.</p>
+  </div>
+</section>
+
+<section id="revolution">
+  <div class="section-head reveal">
+    <div class="eyebrow">از ۱۳۵۷ تا امروز</div>
+    <h2>انقلاب و تاریخ معاصر ایران</h2>
+    <p>تغییر نظام سیاسی، جنگ و دگرگونی‌های اجتماعی، ایران امروز را شکل داده‌اند.</p>
+  </div>
+  <div class="timeline">
+    <article class="era reveal">
+      <span class="date">۱۳۵۷ تا ۱۳۵۸</span>
+      <h3>انقلاب و شکل‌گیری نظام جدید</h3>
+      <p>انقلاب ۱۳۵۷ به پایان سلطنت پهلوی انجامید. پس از آن، ساختار سیاسی تازه‌ای شکل گرفت و جمهوری اسلامی در سال ۱۳۵۸ تأسیس شد.</p>
+    </article>
+    <article class="era reveal">
+      <span class="date">۱۳۵۹ تا ۱۳۶۷</span>
+      <h3>جنگ ایران و عراق</h3>
+      <p>حمله عراق به ایران در سال ۱۳۵۹ جنگی طولانی ایجاد کرد که خسارات انسانی، اقتصادی و زیرساختی سنگینی به جا گذاشت. آتش‌بس در سال ۱۳۶۷ برقرار شد.</p>
+    </article>
+    <article class="era reveal">
+      <span class="date">پس از جنگ تا امروز</span>
+      <h3>بازسازی و جامعه معاصر</h3>
+      <p>بازسازی اقتصادی، گسترش آموزش عالی، تغییرات جمعیتی، تحولات فرهنگی، تحریم‌ها، مناقشه‌های سیاسی و مطالبات اجتماعی از موضوعات مهم دهه‌های اخیر بوده‌اند.</p>
+    </article>
+  </div>
+</section>
+
+<section id="sources">
+  <div class="section-head reveal">
+    <div class="eyebrow">پژوهش و مطالعه بیشتر</div>
+    <h2>منابع پیشنهادی</h2>
+    <p>برای اطلاعات دقیق‌تر، منابع تخصصی و چند روایت تاریخی را با هم مقایسه کن.</p>
+  </div>
+  <div class="reading-list">
+    <article class="reading-item">
+      <h3>دانشنامه ایرانیکا</h3>
+      <p>دانشنامه پژوهشی درباره تاریخ، زبان‌ها، فرهنگ و تمدن‌های ایران.</p>
+      <a class="btn" href="https://iranicaonline.org/" target="_blank" rel="noopener noreferrer">مشاهده منبع ↗</a>
+    </article>
+    <article class="reading-item">
+      <h3>موزه بریتانیا</h3>
+      <p>مجموعه‌های باستان‌شناسی و اطلاعات آثار تمدن‌های باستانی.</p>
+      <a class="btn" href="https://www.britishmuseum.org/" target="_blank" rel="noopener noreferrer">مشاهده منبع ↗</a>
+    </article>
+    <article class="reading-item">
+      <h3>موزه ملی ایران</h3>
+      <p>آثار و مجموعه‌های مرتبط با تاریخ و باستان‌شناسی ایران.</p>
+      <a class="btn" href="https://irannationalmuseum.ir/" target="_blank" rel="noopener noreferrer">مشاهده منبع ↗</a>
+    </article>
+    <article class="reading-item">
+      <h3>کتاب‌ها و اسناد تاریخ معاصر</h3>
+      <p>برای بررسی پهلوی و انقلاب، اسناد، آمار، خاطرات و پژوهش‌های دانشگاهی با دیدگاه‌های مختلف را کنار هم بخوان.</p>
+    </article>
+  </div>
+  <p class="note" style="margin-top:20px">
+    این سایت یک مرور آموزشی است، نه تاریخ جامع دانشگاهی. تاریخ برخی دوره‌های باستان تقریبی است؛
+    برای پژوهش جدی‌تر، منابع تخصصی هر موضوع را مطالعه کن.
+  </p>
+</section>
+</main>
+
+<footer>
+  <div class="logo">ایران‌نامه ✦</div>
+  <p>گذشته را بشناس؛ پرسشگر بمان؛ آینده را آگاهانه بساز.</p>
+  <span class="note">دانشنامه آموزشی تاریخ و فرهنگ ایران</span>
+</footer>
+
+<button class="backtop" id="backtop" aria-label="بازگشت به بالای صفحه" title="بازگشت به بالا">↑</button>
+
+<script>
+const periods = [
+ {name:"ایلامیان",date:"هزاره‌های چهارم تا یکم پ.م.",group:"باستان",icon:"𓂀",desc:"تمدنی کهن در جنوب‌غرب ایران، با مراکز مهمی چون شوش و سنت‌های نوشتاری و اداری."},
+ {name:"مادها",date:"حدود سده هفتم تا ششم پ.م.",group:"باستان",icon:"✦",desc:"از قدرت‌های مهم غرب فلات ایران؛ جزئیات تاریخ و ساختار حکومت آن‌ها همچنان مورد پژوهش است."},
+ {name:"هخامنشیان",date:"حدود ۵۵۰ تا ۳۳۰ پ.م.",group:"باستان",icon:"𓃭",desc:"شاهنشاهی کوروش و داریوش؛ شناخته‌شده برای سازمان اداری، راه‌ها و آثار تخت‌جمشید."},
+ {name:"سلوکیان",date:"سده چهارم تا دوم پ.م.",group:"باستان",icon:"☼",desc:"حکومت جانشینان اسکندر در بخش‌هایی از قلمرو پیشین هخامنشی."},
+ {name:"اشکانیان",date:"حدود ۲۴۷ پ.م. تا ۲۲۴ م.",group:"باستان",icon:"♞",desc:"شاهنشاهی رقیب روم با نقش پررنگ خاندان‌های محلی و سواره‌نظام."},
+ {name:"ساسانیان",date:"۲۲۴ تا ۶۵۱ م.",group:"باستان",icon:"♜",desc:"دربار، دیوان‌سالاری و هنر نیرومند؛ واپسین شاهنشاهی ایران پیش از فتح عربی."},
+ {name:"طاهریان و صفاریان",date:"سده نهم میلادی",group:"میانه",icon:"✧",desc:"حکومت‌های منطقه‌ای مهم در شکل‌گیری قدرت‌های محلی ایران در دوره اسلامی."},
+ {name:"سامانیان",date:"سده نهم تا دهم",group:"میانه",icon:"❖",desc:"از مراکز مهم شکوفایی زبان و ادب فارسی نو."},
+ {name:"غزنویان و سلجوقیان",date:"سده دهم تا سیزدهم",group:"میانه",icon:"♛",desc:"حکومت‌هایی گسترده با نقش مهم در فرهنگ، سیاست و معماری منطقه."},
+ {name:"ایلخانان و تیموریان",date:"سده سیزدهم تا پانزدهم",group:"میانه",icon:"✺",desc:"دوره‌ای از دگرگونی سیاسی و شکوفایی مراکز هنر، معماری و کتاب‌آرایی."},
+ {name:"صفویان",date:"۱۵۰۱ تا ۱۷۳۶",group:"متأخر",icon:"❋",desc:"تثبیت تشیع دوازده‌امامی به‌عنوان مذهب رسمی و رونق هنر و معماری اصفهان."},
+ {name:"افشاریان و زندیان",date:"سده هجدهم",group:"متأخر",icon:"⚜",desc:"از فتوحات نادرشاه تا حکومت کریم‌خان زند و تلاش برای ایجاد ثبات."},
+ {name:"قاجاریان",date:"۱۷۸۹ تا ۱۹۲۵",group:"متأخر",icon:"❂",desc:"جنگ‌های خارجی، واگذاری سرزمین‌ها و انقلاب مشروطه از رویدادهای مهم این دوره."},
+ {name:"پهلوی",date:"۱۹۲۵ تا ۱۹۷۹",group:"معاصر",icon:"✦",desc:"گسترش آموزش و زیرساخت و تغییرات اجتماعی در کنار تمرکز قدرت و محدودیت‌های سیاسی."},
+ {name:"جمهوری اسلامی",date:"از ۱۹۷۹ تاکنون",group:"معاصر",icon:"◈",desc:"انقلاب، جنگ، بازسازی و تحولات سیاسی، اجتماعی و اقتصادی معاصر."}
+];
+
+const cards = document.getElementById("cards");
+const search = document.getElementById("search");
+let activeFilter = "همه";
+
+function renderCards(){
+  const q = search.value.trim().toLocaleLowerCase("fa");
+  const results = periods.filter(p =>
+    (activeFilter === "همه" || p.group === activeFilter) &&
+    (p.name + " " + p.date + " " + p.desc).toLocaleLowerCase("fa").includes(q)
+  );
+
+  cards.replaceChildren();
+
+  if(!results.length){
+    const empty = document.createElement("p");
+    empty.className = "empty";
+    empty.textContent = "نتیجه‌ای پیدا نشد؛ عبارت دیگری را جست‌وجو کن.";
+    cards.appendChild(empty);
+    return;
+  }
+
+  results.forEach((p,i)=>{
+    const el = document.createElement("article");
+    el.className = "card";
+    const symbol = document.createElement("div");
+    symbol.className = "symbol";
+    symbol.textContent = p.icon;
+    const date = document.createElement("span");
+    date.className = "date";
+    date.textContent = p.date;
+    const title = document.createElement("h3");
+    title.textContent = p.name;
+    const desc = document.createElement("p");
+    desc.textContent = p.desc;
+    const tag = document.createElement("span");
+    tag.className = "tag";
+    tag.textContent = p.group;
+    el.append(symbol,date,title,desc,tag);
+    cards.appendChild(el);
+    setTimeout(()=>el.classList.add("show"),Math.min(i*35,350));
+  });
+}
+
+search.addEventListener("input",renderCards);
+
+document.querySelectorAll(".filter").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    activeFilter = btn.dataset.filter;
+    renderCards();
+  });
+});
+
+const menuButton = document.getElementById("menuButton");
+const navlinks = document.getElementById("navlinks");
+menuButton.addEventListener("click",()=>{
+  const open = navlinks.classList.toggle("open");
+  menuButton.setAttribute("aria-expanded",String(open));
+});
+navlinks.querySelectorAll("a").forEach(a=>{
+  a.addEventListener("click",()=>{
+    navlinks.classList.remove("open");
+    menuButton.setAttribute("aria-expanded","false");
+  });
+});
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:.08});
+
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+document.getElementById("backtop").addEventListener("click",()=>{
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+
+renderCards();
+</script>
+</body>
+</html>
